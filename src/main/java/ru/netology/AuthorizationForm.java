@@ -5,7 +5,7 @@ import lombok.Data;
 
 @AllArgsConstructor
 @Data
-public class RegistrationForm {
+public class AuthorizationForm {
     private String login;
     private String password;
     private String status;

@@ -8,7 +8,7 @@ import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
 import static ru.netology.DataGenerator.*;
 
-public class RegistrationFormTest {
+public class AuthorizationFormTest {
 
     @BeforeEach
     void setUp(){
@@ -17,7 +17,7 @@ public class RegistrationFormTest {
 
     @Test
     void shouldLogInIfRegisterAndActiveUser() {
-        RegistrationForm user = registerActiveUser();
+        AuthorizationForm user = registerActiveUser();
         $("[data-test-id='login'] .input__control").setValue(user.getLogin());
         $("[data-test-id='password'] .input__control").setValue(user.getPassword());
         $("[data-test-id='action-login']").click();
@@ -26,7 +26,7 @@ public class RegistrationFormTest {
 
     @Test
     void shouldNotLogInIfUnregisterAndBlockedUser() {
-        RegistrationForm user = unregisterBlockedUser();
+        AuthorizationForm user = unregisterBlockedUser();
         $("[data-test-id='login'] .input__control").setValue(user.getLogin());
         $("[data-test-id='password'] .input__control").setValue(user.getPassword());
         $("[data-test-id='action-login']").click();
@@ -35,7 +35,7 @@ public class RegistrationFormTest {
 
     @Test
     void shouldNotLogInIfWrongUserLogin() {
-        RegistrationForm user = unregisterWithWrongLogin();
+        AuthorizationForm user = unregisterWithWrongLogin();
         $("[data-test-id='login'] .input__control").setValue(user.getLogin());
         $("[data-test-id='password'] .input__control").setValue(user.getPassword());
         $("[data-test-id='action-login']").click();
@@ -44,7 +44,7 @@ public class RegistrationFormTest {
 
     @Test
     void shouldNotLogInIfWrongPassword() {
-        RegistrationForm user = unregisterWithWrongPassword();
+        AuthorizationForm user = unregisterWithWrongPassword();
         $("[data-test-id='login'] .input__control").setValue(user.getLogin());
         $("[data-test-id='password'] .input__control").setValue(user.getPassword());
         $("[data-test-id='action-login']").click();
